@@ -7,7 +7,9 @@ pipeline {
                 branch "main"
             }
             steps {
-                powershell "mvn clean test"
+				String testValue = "hellow world";
+				println testValue;
+                powershell "mvn clean test";
             }
         }
     }
