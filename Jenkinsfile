@@ -12,7 +12,7 @@ pipeline {
             steps {
 				configFileProvider([configFile(fileId: "b137218d-3dab-471a-b8db-ca94e52e7072", variable: 'branch')]) {
 				   print 'printing branch name';
-				   print brach;
+				   print branch;
 				}
 				echo "${testValue}";
                 powershell "mvn clean test";
