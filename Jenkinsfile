@@ -11,12 +11,8 @@ pipeline {
             }
             steps {
 				configFileProvider([configFile(fileId: "b137218d-3dab-471a-b8db-ca94e52e7072", variable: 'autoDeployProperties')]) {
-				    
-					def branch = autoDeployProperties['branch']
-				   
-				   print 'printing branch name';
-				   print branch;
-				 
+				    echo "printing branch name";
+					echo "$autoDeployProperties['branch']";
 				}
 				
                 powershell "mvn clean test";
