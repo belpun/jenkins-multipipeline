@@ -1,3 +1,6 @@
+
+String testValue = "hellow world";
+
 pipeline {
     agent any
 	triggers { upstream(upstreamProjects: 'jenkins-multipipeline-trigger/trigger', threshold: hudson.model.Result.SUCCESS) }
@@ -7,7 +10,7 @@ pipeline {
                 branch "main"
             }
             steps {
-				String testValue = "hellow world";
+				
 				echo "${testValue}";
                 powershell "mvn clean test";
             }
