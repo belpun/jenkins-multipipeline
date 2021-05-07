@@ -16,10 +16,7 @@ pipeline {
     stages {
         stage("build-and-deploy-dev") {
 		
-			configFileProvider([configFile(fileId: "b137218d-3dab-471a-b8db-ca94e52e7072", variable: 'autoDeployProperties')]) {
-				echo 'testing values'
-			}
-            when {
+		          when {
                 branch "main"
             }
             steps {
