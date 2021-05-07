@@ -12,7 +12,7 @@ pipeline {
             steps {
 				configFileProvider([configFile(fileId: "b137218d-3dab-471a-b8db-ca94e52e7072", variable: 'autoDeployProperties')]) {
 				   def props = readProperties  file: '$autoDeployProperties'
-				   echo '$props['branch']'
+				   echo '${props['branch']}'
 				}
 				
                 powershell "mvn clean test";
