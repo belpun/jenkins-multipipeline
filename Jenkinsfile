@@ -10,11 +10,13 @@ pipeline {
                 branch "main"
             }
             steps {
-				configFileProvider([configFile(fileId: "b137218d-3dab-471a-b8db-ca94e52e7072", variable: 'branch')]) {
+				configFileProvider([configFile(fileId: "b137218d-3dab-471a-b8db-ca94e52e7072", variable: 'autoDeployProperties')]) {
+				    def props = readProperties file: "$autoDeployProperties"
+					def branch = props['branch']
+				   
 				   print 'printing branch name';
 				   print branch;
-				   print 'printing branch name with dollar sign';
-				   echo "${branch}";
+				 
 				}
 				
                 powershell "mvn clean test";
